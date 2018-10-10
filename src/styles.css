@@ -32,3 +32,25 @@
   height: 400px;
   width: 600px;
 }
+
+.card {
+  width: 100%;
+}
+
+.card-header, .card-header button {
+  width: 100%;
+  white-space: normal;
+}
+
+.card-header p {
+  margin-bottom: 0;
+}
+
+.accordion {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-wrap {
+  width: 50%;
+}

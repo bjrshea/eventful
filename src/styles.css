@@ -1,3 +1,34 @@
-body {
-  background-color: #fff;
+* {
+  margin: 0 auto;
+  padding: 0 auto;
+}
+
+.wrapper {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title {
+  text-align: center;
+}
+
+.ticketLink {
+  margin-top: 42px;
+  width: 220px;
+  background-color: #46A7FF;
+  text-align: center;
+  padding: 4px;
+  font-size: 20px;
+  border-radius: 12px;
+}
+
+.ticketLink a {
+  color: white;
+}
+
+#mapid {
+  margin-top: 62px;
+  height: 400px;
+  width: 600px;
 }

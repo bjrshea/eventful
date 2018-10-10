@@ -1,6 +1,6 @@
 export default class Event {
   constructor(apiResponse) {
-    this.locations =[apiResponse.events.event[0].latitude, apiResponse.events.event[0].longitude];
+    this.location =[apiResponse.events.event[0].latitude, apiResponse.events.event[0].longitude];
     this.url = apiResponse.events.event[0].url;
     this.cityName = apiResponse.events.event[0].city_name;
     this.regionName = apiResponse.events.event[0].region_name;

@@ -3,6 +3,11 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import Event from './Event.js';
+import 'leaflet';
+
+
+const L = window.L;
+
 
 $(document).ready(function() {
   var settings = {
@@ -20,10 +25,31 @@ $(document).ready(function() {
   "dataType": "json"
 }
 
+
+
 $.ajax(settings).done(function (response) {
   const firstEvent = new Event(response);
+  console.log(firstEvent.location);
+  var mymap = L.map('mapid').setView([firstEvent.location[0], firstEvent.location[1]], 13);
+  var marker = L.marker([firstEvent.location[0], firstEvent.location[1]]).addTo(mymap);
 
+  L.tileLayer(`https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}`, {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox.streets',
+    accessToken: 'pk.eyJ1Ijoic3dhbXBjIiwiYSI6ImNqbjNtNDBhdDAwemUza293NmUzenB4aGwifQ.Nu7rHbRdFTIyA_iKow2ouA'
+}).addTo(mymap);
 
-  console.log(firstEvent);
+  $('#title').text(firstEvent.title);
+  $('#venue a').text(firstEvent.venueName);
+  $('#venue a').attr("href", firstEvent.venueUrl);
+  $('#city').text(firstEvent.cityName);
+  $('#region').text(firstEvent.regionName);
+  // $('#date').
+  $('#time').text(firstEvent.startTime);
+  // $('.performers ul').append()
+  $('.description').html(firstEvent.description);
+  $('.ticketLink a').attr("href", firstEvent.url);
+
 });
 });

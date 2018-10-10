@@ -13,7 +13,7 @@ $(document).ready(function() {
   var settings = {
   "async": true,
   "crossDomain": true,
-  "url": "http://api.eventful.com/json/events/search?app_key=v6ggdZv36ZkjJdCq&location=portland&date=Today&category=music",
+  "url": `http://api.eventful.com/json/events/search?app_key=${process.env.EVENT_API_KEY}&location=portland&date=Today&category=music`,
   "method": "GET",
   "headers": {
     "Cache-Control": "no-cache",
@@ -51,7 +51,7 @@ $.ajax(settings).done(function (response) {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
     id: 'mapbox.streets',
-    accessToken: 'pk.eyJ1Ijoic3dhbXBjIiwiYSI6ImNqbjNtNDBhdDAwemUza293NmUzenB4aGwifQ.Nu7rHbRdFTIyA_iKow2ouA'
+    accessToken: `${process.env.LEAF_API_KEY}`
 }).addTo(mymap);
 
   // $('#title').text(todaysEvents[0].title);

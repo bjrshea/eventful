@@ -34,13 +34,11 @@ $(document).ready(function() {
       startDate = startDate.split('-').join('');
       endDate = endDate.split('-').join('');
     if (endDate == "") {
-      dateRange = startDate;
-    } else if (startDate == "") {
-      dateRange = endDate;
+      dateRange = startDate + "00" + "-" + startDate + "00";
     } else {
-      dateRange = startDate + "-" + endDate;
+      dateRange = startDate + "00" + "-" + endDate + "00";
     }
-
+    console.log(dateRange);
     $('.accordion').empty();
     $('#mapid').remove();
     $('.mapwrap').append('<div id="mapid"></div>');
@@ -48,7 +46,7 @@ $(document).ready(function() {
     var settings = {
       "async": true,
       "crossDomain": true,
-      "url": `http://api.eventful.com/json/events/search?app_key=${process.env.EVENT_API_KEY}&location=${locationSearch}&date=Today&category=music&page_size=${searchSize}`,
+      "url": `http://api.eventful.com/json/events/search?app_key=${process.env.EVENT_API_KEY}&location=${locationSearch}&date=${dateRange}&category=music&page_size=${searchSize}`,
       "method": "GET",
       "headers": {
         "Cache-Control": "no-cache",

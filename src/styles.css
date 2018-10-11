@@ -13,6 +13,18 @@
   text-align: center;
 }
 
+.search {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 42px;
+}
+
+#searchSize {
+  width: 50px;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
 .ticketLink {
   margin-top: 42px;
   width: 220px;
@@ -31,6 +43,16 @@
   margin-top: 62px;
   height: 400px;
   width: 600px;
+}
+
+.restaurants {
+  color: #B2730D;
+  font-weight: bold;
+}
+.restaurants:hover {
+  color: #FFB846;
+  cursor: zoom-in;
+  text-decoration: underline;
 }
 
 .card {
